@@ -1,0 +1,8 @@
+<section class="instant" xmlns="http://www.w3.org/1999/html">
+  <input placeholder="Instant name" [(ngModel)]="newInstant.name">
+  <textarea rows="5" cols="50" placeholder="Instant description" [(ngModel)]="newInstant.description"></textarea>
+  <input type="checkbox" [(ngModel)]="newInstant.isFixed">Is fixed
+  <input *ngIf="newInstant.isFixed" placeholder="Instant time/date" [(ngModel)]="newInstant.date">
+
+  <button (click)="addInstant()">Add Instant</button>
+</section>
