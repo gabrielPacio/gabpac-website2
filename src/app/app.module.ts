@@ -2,24 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ServerCommunicationService } from './server-communication.service'
 
 import { AppComponent } from './app.component';
-import {InstantComponent} from "./instant/instant.component";
-import {InstantService} from "./instant/instant.service";
-import {NewInstantPanelComponent} from "./instant/newInstantPanel/newInstantPanel.component";
+import { TestComponentComponent } from './test-component/test-component.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    InstantComponent,
-    NewInstantPanelComponent
+    TestComponentComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [InstantService],
+  providers: [ServerCommunicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
