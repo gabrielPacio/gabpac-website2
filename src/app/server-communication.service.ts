@@ -26,7 +26,7 @@ export class ServerCommunicationService {
 
   public getPostByID(id: number): Observable<PostModel> {
     return this.http.get(globals.SITE_URL + 'posts/' + id)
-      .map(res => new PostModel(res))
+      .map(res => new PostModel(res.json()))
       .catch(this.handleError);
   }
 

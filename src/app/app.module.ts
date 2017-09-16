@@ -6,12 +6,14 @@ import { ServerCommunicationService } from './server-communication.service'
 
 import { AppComponent } from './app.component';
 import { TestComponentComponent } from './test-component/test-component.component';
+import {PostComponent} from "./post/post.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponentComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
