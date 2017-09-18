@@ -1,6 +1,5 @@
 <div>
     <div *ngFor="let post of posts">
-        <h2>{{post.title["rendered"]}}</h2>
         <blog-post-component [postModel]="post"></blog-post-component>
     </div>
 </div>

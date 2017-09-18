@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from "@angular/core";
 import {ServerCommunicationService} from "../server-communication.service";
 import {PostModel} from './post.model';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 
 @Component({
   templateUrl: 'post.component.html',
@@ -13,16 +14,18 @@ export class PostComponent implements OnChanges {
     @ViewChild('content', {read: ElementRef}) content: ElementRef;
     public postContent: string;
 
-    constructor(private serverComm: ServerCommunicationService) {}
+    constructor(private serverComm: ServerCommunicationService, private route: ActivatedRoute) {}
 
     ngOnChanges(changes: SimpleChanges) {
+        //console.log(this.route.params);
         if (!this.postModel) {
             this.serverComm.getPostByID(this.postId).subscribe(res => {
                 this.postModel = res;
                 this.setVars();
             });
         } else {
-          this.setVars();
+            this.setVars();
+            console.log(this.postModel)
         }
 
     }

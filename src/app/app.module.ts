@@ -9,22 +9,26 @@ import { TestComponentComponent } from './test-component/test-component.componen
 import {PostComponent} from "./post/post.component";
 import {CategoryComponent} from './category/category.component';
 import {MainMenuComponent} from './menus/main-menu.component';
+import {AppRoutes} from './app.routes';
+import {HomeComponent} from './home/home.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TestComponentComponent,
-    PostComponent,
-    CategoryComponent,
-    MainMenuComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [ServerCommunicationService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        TestComponentComponent,
+        PostComponent,
+        CategoryComponent,
+        MainMenuComponent,
+        HomeComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AppRoutes
+    ],
+    providers: [ServerCommunicationService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

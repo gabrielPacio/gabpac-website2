@@ -178,7 +178,6 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-    margin-bottom: 2rem;
     font-weight: 300;
 }
 h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
@@ -205,10 +204,10 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-    color: #1EAEDB;
+    color: $color_link;
 }
 a:hover {
-    color: #0FA0CE;
+    color: darken($color_link, 20%);
 }
 
 
@@ -483,15 +482,48 @@ there.
 .main {
     /*background-image: url("./assets/images/alphabet.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed*/
-    background-color: darken($color_main_background, 10%);
+    background-attachment: fixed;*/
+    background-color: lighten($color_main_background, 60%);
+
+    header {
+
+        background-color: lighten($color_main_background, 50%);
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        width: 100%;
+        padding: 2em 2em 1em 5em;
+        box-shadow: 3px 6px 18px 5px rgba(50,50,50,.5);
+        box-sizing: border-box;
+
+        /*&:before {
+            background-image: url("./assets/images/alphabet.jpg");
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            content: "";
+            opacity: 0.9;
+        }*/
+
+        h1 {
+            color: rgba(204, 204, 196, 0.8);
+            text-shadow: 1px 4px 6px lighten($color_main_background, 50%), 0 0 0 #000, 1px 4px 6px lighten($color_main_background, 50%);
+            font-family: 'Martel', serif;
+            letter-spacing: 0.15em;
+        }
+    }
+}
+
+.main-content {
+    /*max-height: 85vh;
+    overflow-y: scroll;*/
 }
 
 nav.main-menu {
-    position: fixed;
-    z-index: 1;
-    right: 0;
-    background-color: rgba(31, 4, 4, .7);
+    float: right;
 
     li {
         float: left;
@@ -509,12 +541,19 @@ nav.main-menu {
     background-color: $color_post_background;
     padding: 90px;
     border-radius: 8px;
-    //width: 100%;
     max-width: 800px;
-    margin: 0 auto;
-    -webkit-box-shadow: 3px 6px 18px 5px rgba(50,50,50,1);
-    -moz-box-shadow: 3px 6px 18px 5px rgba(50,50,50,1);
-    box-shadow: 3px 6px 18px 5px rgba(50,50,50,1);
-  font-family: 'Raleway', sans-serif;
-  //font-family: 'Roboto Slab', serif;
+    margin: 50px auto;
+    box-shadow: 3px 6px 18px 5px rgba(50,50,50,.5);
+    font-family: 'Raleway', sans-serif;
+
+    h2 {
+        color: $color_text_title;
+        font-family: 'Roboto Slab', serif;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
 }
