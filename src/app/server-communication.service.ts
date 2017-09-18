@@ -30,6 +30,12 @@ export class ServerCommunicationService {
       .catch(this.handleError);
   }
 
+    public getPostBySlug(slug: string): Observable<PostModel> {
+        return this.http.get(globals.SITE_URL + 'posts?slug=' + slug)
+            .map(res => res.json().map(element => new PostModel(element))[0])
+            .catch(this.handleError);
+    }
+
   public getAllCategories(): Observable<CategoryModel[]> {
     return this.http.get(globals.SITE_URL + 'categories')
       .map(res => res.json().map(element => new CategoryModel(element)))
