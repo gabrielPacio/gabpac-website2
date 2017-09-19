@@ -19,7 +19,7 @@ export class ServerCommunicationService {
   }
 
   public getPostsByCategory(category: number, page = 1): Observable<PostModel[]> {
-    return this.http.get(globals.SITE_URL + 'posts?page=' + page + '&category=' + category)
+    return this.http.get(globals.SITE_URL + 'posts?categories=' + category + '&page=' + page)
       .map(res => res.json().map(element => new PostModel(element)))
       .catch(this.handleError);
   }

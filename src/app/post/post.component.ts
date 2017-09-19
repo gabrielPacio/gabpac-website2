@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from "@angular/core";
+import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {ServerCommunicationService} from "../server-communication.service";
 import {PostModel} from './post.model';
 import {ActivatedRoute, Router} from "@angular/router";
@@ -8,42 +8,48 @@ import {ActivatedRoute, Router} from "@angular/router";
   selector: 'blog-post-component',
   styleUrls: ['post.component.scss']
 })
-export class PostComponent implements OnChanges {
-    @Input() postId: number;
-    @Input() postModel: PostModel = new PostModel();
+export class PostComponent implements OnChanges, OnInit {
+
+    @Input() postModel: PostModel;
+    @Input() isInitializeMinified: boolean = false;
     @ViewChild('content', {read: ElementRef}) content: ElementRef;
+
     public postContent: string;
+    public isMinified: boolean;
     private slug: string;
 
-    constructor(private serverComm: ServerCommunicationService, private route: ActivatedRoute, private router: Router) {
-
-        this.postModel.title = '';
+    constructor(private serverComm: ServerCommunicationService, private route: ActivatedRoute) {
 
         if (this.route.params && this.route.params['value'] && this.route.params['value'].id) {
             this.slug = this.route.params['value'].id;
+        }
+    }
+
+    private init() {
+        if (this.postModel) {
+            this.setVars();
+        } else {
             this.serverComm.getPostBySlug(this.slug).subscribe(res => {
                 this.postModel = res;
                 this.setVars();
             });
         }
+        this.isMinified = this.isInitializeMinified;
+    }
+
+    ngOnInit() {
+        this.init();
     }
 
     ngOnChanges(changes: SimpleChanges) {
-
-
-        if (!this.postModel) {
-            this.serverComm.getPostByID(this.postId).subscribe(res => {
-                this.postModel = res;
-                this.setVars();
-            });
-        } else {
-            this.setVars();
-        }
-
+        this.init();
     }
 
     private setVars(): void {
-        if (!this.postModel.content) {
+        if (!this.postModel) {
+            return;
+        }
+        if (!this.postModel.content){
             return;
         }
         this.postContent = this.postModel.content['rendered'];
