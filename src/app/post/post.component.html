@@ -3,5 +3,6 @@
     <div [ngClass]="{'minimized': isMinified}" #content>
 
     </div>
+    <div *ngIf="isMinified" class="shader"></div>
     <button *ngIf="isMinified" (click)="isMinified = false" role="button" class="maximize-button">Ler Mais</button>
 </div>
