@@ -1,6 +1,6 @@
 <div class="post-content row" xmlns="http://www.w3.org/1999/html">
     <h2 *ngIf="postModel"><a routerLink="/post/{{postModel.slug}}" routerLinkActive="active-link">{{postModel.title["rendered"]}}</a></h2>
-    <div [ngClass]="{'minimized': isMinified}" #content>
+    <div [ngClass]="{'minimized': isMinified, 'text-container': true}" #content>
 
     </div>
     <div *ngIf="isMinified" class="shader"></div>
