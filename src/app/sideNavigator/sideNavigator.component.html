@@ -1,0 +1,5 @@
+<div class="side-navigator">
+    <ul>
+        <li *ngFor="let post of postList"><a href="#{{post.linkName}}" (click)="linkClicked(post.linkName, $event)">{{post.title}}</a></li>
+    </ul>
+</div>

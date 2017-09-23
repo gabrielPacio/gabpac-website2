@@ -1,5 +1,7 @@
+<blog-side-navigator-component [postList]="postLinksSide"></blog-side-navigator-component>
 <div class="category-container">
     <div *ngFor="let post of posts">
         <blog-post-component [isInitializeMinified]="true" [postModel]="post"></blog-post-component>
     </div>
 </div>
+

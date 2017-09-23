@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {ServerCommunicationService} from '../server-communication.service';
 import {Observable} from 'rxjs/Observable';
 import {PostModel} from '../post/post.model';
+import {TitleDescriptionModel} from "./titleDescription.model";
 @Injectable()
 export class CategoryService {
     constructor(private serverComm: ServerCommunicationService) {}
@@ -18,6 +19,25 @@ export class CategoryService {
             case 'microhistorinhas':
                 ret = 5;
                 break
+        }
+        return ret;
+    }
+
+    public getTitleBySlug(slug: string): TitleDescriptionModel {
+        const ret: TitleDescriptionModel = new TitleDescriptionModel();
+        switch (slug) {
+            case 'desoriente':
+                ret.title = 'Desoriente';
+                ret.description = 'Análises, ensaios e crônicas sobre Israel e o Oriente Médio';
+                break;
+            case 'arcimboldo':
+                ret.title = 'Arcimboldo';
+                ret.description = 'Contos de Arcimboldo, o Dono do Brasil';
+                break;
+            case 'microhistorinhas':
+                ret.title = 'Microhistorinha';
+                ret.description = 'Pequenas histórias do dia a dia em Israel';
+                break;
         }
         return ret;
     }

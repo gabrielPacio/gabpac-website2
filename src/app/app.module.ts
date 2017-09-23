@@ -11,6 +11,9 @@ import {CategoryComponent} from './category/category.component';
 import {MainMenuComponent} from './menus/main-menu.component';
 import {AppRoutes} from './app.routes';
 import {HomeComponent} from './home/home.component';
+import {SideNavigatorComponent} from "./sideNavigator/sideNavigator.component";
+import {HeaderComponent} from "./header/header.component";
+import {HeaderService} from "./header/header.service";
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import {HomeComponent} from './home/home.component';
         PostComponent,
         CategoryComponent,
         MainMenuComponent,
-        HomeComponent
+        SideNavigatorComponent,
+        HomeComponent,
+        HeaderComponent
     ],
     imports: [
         BrowserModule,
@@ -28,7 +33,7 @@ import {HomeComponent} from './home/home.component';
         HttpModule,
         AppRoutes
     ],
-    providers: [ServerCommunicationService],
+    providers: [ServerCommunicationService, HeaderService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

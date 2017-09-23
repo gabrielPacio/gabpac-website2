@@ -1,10 +1,7 @@
 <router-outlet ></router-outlet>
 
 <div class="main">
-    <header>
-        <h1>Gabriel Paciornik - Textos</h1>
-        <blog-main-menu-component></blog-main-menu-component>
-    </header>
+    <blog-header [title]="'Textos'"></blog-header>
     <div class="main-content row">
         <router-outlet ></router-outlet>
     </div>
