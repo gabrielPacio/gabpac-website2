@@ -35,7 +35,7 @@ export class CategoryService {
                 ret.description = 'Contos de Arcimboldo, o Dono do Brasil';
                 break;
             case 'microhistorinhas':
-                ret.title = 'Microhistorinha';
+                ret.title = 'Microhistorinhas';
                 ret.description = 'Pequenas histórias do dia a dia em Israel';
                 break;
         }

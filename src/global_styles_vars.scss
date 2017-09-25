@@ -1,45 +1,35 @@
+/* ------------------ Colors -----------------*/
 $white: #fff;
 $black: #000;
-
-//$off_white: #ecece3;
-//$dark_grey: #333;
-
-/*$brown_sugar:       #be6e46;
-$tea_green:         #cde7b0;
-$cambridge_blue:    #a3bfa8;
-$light_slate_gray:  #7286a0;
-$ebony:             #59594a;
-
-$nickel:            #6c756b;
-$pewter_blue:       #93acb5;
-$baby_blue_eyes:    #96c5f7;
-$fresh_air:         #a9d3ff;
-$alice_blue:        #f2f4ff;*/
-
-
-
-/*$brownish_grey: rgba(75, 71, 72, 1);
-$bright_red:    rgba(199, 102, 85, 1);
-$sky_blue:      rgba(149, 201, 205, 1);
-$baby_yellow:   rgba(245, 228, 178, 1);
-$almost_white:  rgba(241, 234, 227, 1);*/
 
 $brownish_grey: rgba(75, 71, 72, 1);
 $bright_red:    rgba(199, 102, 85, 1);
 $sky_blue:      rgb(103, 163, 171);
-$dark_yellow: rgb(184, 145, 39);
+$dark_yellow:   rgb(184, 145, 39);
 $baby_yellow:   rgba(245, 228, 178, 1);
 $almost_white:  rgba(241, 234, 227, 1);
+$bluish_grey:   rgb(126, 141, 148);
 
+/* ------------------- Used Colors ------------*/
 
-
-$color_shadow: darken(rgba(75, 71, 72, .25), 20%);
+$color_shadow: rgba($bluish_grey, 0.5);
 $color_post_background: lighten($sky_blue, 40%);
 $color_header_background: lighten($bright_red, 20%);
 $color_main_body: lighten($sky_blue, 80%);
 $color_menu: darken($bright_red, 20%);
-$color_link: darken($sky_blue, 30%);
+$color_link: darken($bright_red, 10%);
 $color_body: $brownish_grey;
-$color_text_title: darken($bright_red, 10%);
-$color_background_title: $sky_blue;
+$color_text_title: $dark_yellow;
+$color_background_title: $baby_yellow;
 
+/* ------------------- Fonts ----------------*/
+
+$font_squared: 'Roboto Slab', serif;
+$font_big_caller: 'Rubik', sans-serif;
+$font_reading: 'Raleway', sans-serif;
+
+/* ------------------ Mixins ----------------*/
+
+@mixin lightGradient($color) {
+    @include background-image(linear-gradient(175deg, lighten($color, 4%), darken($color, 4%)));
+}

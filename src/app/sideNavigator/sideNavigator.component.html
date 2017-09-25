@@ -1,4 +1,4 @@
-<div class="side-navigator">
+<div class="side-navigator simple-shadow border-radius">
     <ul>
         <li *ngFor="let post of postList"><a href="#{{post.linkName}}" (click)="linkClicked(post.linkName, $event)">{{post.title}}</a></li>
     </ul>
