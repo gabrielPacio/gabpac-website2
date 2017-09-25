@@ -14,6 +14,7 @@ import {HomeComponent} from './home/home.component';
 import {SideNavigatorComponent} from "./sideNavigator/sideNavigator.component";
 import {HeaderComponent} from "./header/header.component";
 import {HeaderService} from "./header/header.service";
+import {MenuTooltipComponent} from './menus/menuTooltip/menuTooltip.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {HeaderService} from "./header/header.service";
         MainMenuComponent,
         SideNavigatorComponent,
         HomeComponent,
-        HeaderComponent
+        HeaderComponent,
+        MenuTooltipComponent
     ],
     imports: [
         BrowserModule,
