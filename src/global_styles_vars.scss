@@ -18,19 +18,25 @@ $alice_blue:        #f2f4ff;*/
 
 
 
-$brownish_grey: rgba(75, 71, 72, 1);
+/*$brownish_grey: rgba(75, 71, 72, 1);
 $bright_red:    rgba(199, 102, 85, 1);
 $sky_blue:      rgba(149, 201, 205, 1);
+$baby_yellow:   rgba(245, 228, 178, 1);
+$almost_white:  rgba(241, 234, 227, 1);*/
+
+$brownish_grey: rgba(75, 71, 72, 1);
+$bright_red:    rgba(199, 102, 85, 1);
+$sky_blue:      rgb(103, 163, 171);
+$dark_yellow: rgb(184, 145, 39);
 $baby_yellow:   rgba(245, 228, 178, 1);
 $almost_white:  rgba(241, 234, 227, 1);
 
 
 
-
 $color_shadow: darken(rgba(75, 71, 72, .25), 20%);
-$color_post_background: $almost_white;
+$color_post_background: lighten($sky_blue, 40%);
 $color_header_background: lighten($bright_red, 20%);
-$color_main_body: $baby_yellow;
+$color_main_body: lighten($sky_blue, 80%);
 $color_menu: darken($bright_red, 20%);
 $color_link: darken($sky_blue, 30%);
 $color_body: $brownish_grey;
