@@ -1,4 +1,5 @@
 <header class="simple-shadow">
-    <h1 (click)="test()" [(ngClass)]="titleState">Isto não é um Blog - {{title}}</h1>
+    <h1 [(ngClass)]="titleState">Isto não é um Blog - {{title}}</h1>
+    <h2 [(ngClass)]="subtitleState">{{subtitle}}</h2>
     <blog-main-menu-component></blog-main-menu-component>
 </header>

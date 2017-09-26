@@ -34,7 +34,7 @@ export class CategoryComponent implements OnInit, OnChanges {
         this.categoryService.getCategoryByName(this.slug).subscribe(res => {
             this.posts = res;
             this.createSideLinks();
-            this.headerService.setTitle(this.categoryService.getTitleBySlug(this.slug).title);
+            this.headerService.setTitle(this.categoryService.getTitleBySlug(this.slug));
         });
     }
 

@@ -34,6 +34,25 @@
                 transition: all 1s ease-in-out;
             }
         }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            float: left;
+            margin-top: 0.5rem;
+
+            &.done {
+                color: rgba(240, 255, 255, 0.8);
+                text-shadow: 1px 1px 3px $color_header_background, 0 0 0 #000, 1px 1px 3px $color_header_background;
+                transition: all 1s ease-in-out;
+            }
+
+            &.outing {
+                color: $color_header_background;
+                text-shadow: 0 0 0 $color_header_background, 0 0 0 $color_header_background, 0 0 0 $color_header_background;
+                transition: all 1s ease-in-out;
+            }
+        }
     }
 }
 
@@ -47,6 +66,33 @@ nav.main-menu {
         float: left;
         padding: 0.2rem 1.2rem;
         font-size: 1.9rem;
+        position: relative;
+
+        .menu-tooltip {
+            font-size: 1.2rem;
+            padding: .6rem;
+            color: $color_menu;
+            background-color: $baby_yellow;
+            position: absolute;
+            z-index: 50;
+            text-align: center;
+            bottom: 3rem;
+            min-width: 10rem;
+            @include opacity(0);
+            transition: all 1s ease-in-out;
+            @include single-box-shadow(3px, 3px, 12px, 1px, rgba(#000, .3));
+
+            p {
+                margin: 0;
+                line-height: 1.1rem;
+            }
+        }
+
+        &:hover {
+            .menu-tooltip {
+                @include opacity(.8);
+            }
+        }
 
         a {
             color: $color_menu;

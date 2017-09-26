@@ -36,10 +36,16 @@ export class ServerCommunicationService {
             .catch(this.handleError);
     }
 
+    /* Original function - changed to a static version since categories hardly change
     public getAllCategories(): Observable<CategoryModel[]> {
     return this.http.get(globals.SITE_URL + 'categories')
       .map(res => res.json().map(element => new CategoryModel(element)))
       .catch(this.handleError);
+    }
+     */
+
+    public getAllCategories(): CategoryModel[] {
+        return globals.CATEGORIES.map(element => new CategoryModel(element));
     }
 
     private handleError(error: any): Observable<any> {
