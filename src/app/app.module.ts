@@ -15,6 +15,7 @@ import {SideNavigatorComponent} from "./sideNavigator/sideNavigator.component";
 import {HeaderComponent} from "./header/header.component";
 import {HeaderService} from "./header/header.service";
 import {MenuTooltipComponent} from './menus/menuTooltip/menuTooltip.component';
+import {AboutPageComponent} from './aboutPage/aboutPage.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MenuTooltipComponent} from './menus/menuTooltip/menuTooltip.component';
         SideNavigatorComponent,
         HomeComponent,
         HeaderComponent,
-        MenuTooltipComponent
+        MenuTooltipComponent,
+        AboutPageComponent
     ],
     imports: [
         BrowserModule,
