@@ -25,6 +25,7 @@
     "@angular/router": "^4.4.3",
     "compass-mixins": "^0.12.10",
     "core-js": "^2.5.1",
+    "ng2-page-scroll": "^4.0.0-beta.11",
     "rxjs": "^5.4.3",
     "style-loader": "^0.18.2",
     "ts-helpers": "^1.1.2",

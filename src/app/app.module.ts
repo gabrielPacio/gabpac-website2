@@ -16,6 +16,7 @@ import {HeaderComponent} from "./header/header.component";
 import {HeaderService} from "./header/header.service";
 import {MenuTooltipComponent} from './menus/menuTooltip/menuTooltip.component';
 import {AboutPageComponent} from './aboutPage/aboutPage.component';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {AboutPageComponent} from './aboutPage/aboutPage.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutes
+        AppRoutes,
+        Ng2PageScrollModule
     ],
     providers: [ServerCommunicationService, HeaderService],
     bootstrap: [AppComponent]

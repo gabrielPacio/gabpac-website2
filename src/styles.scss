@@ -168,6 +168,11 @@ nav.main-menu {
         &:hover {
             color: darken($color_menu, 10%);
         }
+        cursor: pointer;
+    }
+    .selected {
+        color: darken($color_menu, 20%);
+        font-weight: 900;
     }
 }
 
