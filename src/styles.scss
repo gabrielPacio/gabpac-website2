@@ -72,14 +72,14 @@ nav.main-menu {
             font-size: 1.2rem;
             padding: .6rem;
             color: $color_menu;
-            background-color: $baby_yellow;
+            @include lightGradient($baby_yellow);
             position: absolute;
             z-index: 50;
             text-align: center;
             bottom: 3rem;
             min-width: 10rem;
             @include opacity(0);
-            transition: all 1s ease-in-out;
+            transition: all 0.5s ease-in-out;
             @include single-box-shadow(3px, 3px, 12px, 1px, rgba(#000, .3));
 
             p {
@@ -99,6 +99,10 @@ nav.main-menu {
             text-decoration: none;
         }
     }
+}
+
+.posts-container:first-child {
+    margin-top: 16rem;
 }
 
 .post-content {
@@ -173,4 +177,10 @@ nav.main-menu {
 
 .border-radius {
     @include border-radius(0.4rem);
+}
+
+footer {
+    @include lightGradient($color_header_background);
+    padding: 2rem;
+    color: $color_menu;
 }
