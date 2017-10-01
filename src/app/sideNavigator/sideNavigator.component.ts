@@ -1,6 +1,6 @@
 import {AfterViewChecked, Component, Input} from '@angular/core';
 import {SideNavigatorModel} from "./sideNavigator.model";
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
 @Component({
     selector: 'blog-side-navigator-component',
@@ -19,19 +19,23 @@ export class SideNavigatorComponent implements AfterViewChecked {
     }
 
     ngAfterViewChecked() {
+        if (!this.postsTopPositions.length) {
+            this.setPostsHeight();
+        }
+    }
 
+    private setPostsHeight() {
+
+        this.posts = document.getElementsByClassName('post-content');
+        this.postsTopPositions = Array.from(this.posts).map(element => {
+            return element.getBoundingClientRect().top + window.innerHeight/2 + document.body.scrollTop;
+        })
     }
 
     private handleOnScroll() {
+        _.debounce(this.setPostsHeight, 100)();
+        this.setPostsHeight();
         const position: number = (document.documentElement.scrollTop  || document.body.scrollTop);
-
-        //_.debounce(() => {
-            this.posts = document.getElementsByClassName('post-content');
-            this.postsTopPositions = Array.from(this.posts).map(element => {
-                return element.getBoundingClientRect().top + window.innerHeight / 2;
-            })
-            //console.log('debounce')
-        //}, 100)();
 
         if (!this.posts) {
             return;
@@ -40,9 +44,8 @@ export class SideNavigatorComponent implements AfterViewChecked {
         const arr = Array.from(this.posts).filter((element, key) => {
             return this.postsTopPositions[key] > position /*&& this.postsTopPositions[key + 1] < position*/;
         });
-        console.log(position)
         if (arr && arr[0] && arr[0].getElementsByTagName('h2')) {
-            currentId = arr[0].getElementsByTagName('h2')[0].id;
+            currentId = arr[0].getElementsByTagName('h2')[0].id
             if (this.currentId !== currentId) {
                 this.currentId = currentId;
             }
