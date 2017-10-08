@@ -146,7 +146,9 @@ nav.main-menu {
 
         @include background-image(linear-gradient(rgba($color_post_background, 0%), $color_post_background));
     }
-
+    .navigator-between-posts {
+        padding-top: 3rem;
+    }
 }
 
 .side-navigator {
@@ -189,3 +191,4 @@ footer {
     padding: 2rem;
     color: $color_menu;
 }
+

@@ -2,6 +2,9 @@ import {Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChil
 import {ServerCommunicationService} from "../server-communication.service";
 import {PostModel} from './post.model';
 import {ActivatedRoute, Router} from "@angular/router";
+import {CategoryService} from "../category/category.service";
+import {TitleDescriptionModel} from "../category/titleDescription.model";
+import {HeaderService} from "../header/header.service";
 
 @Component({
   templateUrl: 'post.component.html',
@@ -18,7 +21,8 @@ export class PostComponent implements OnChanges, OnInit {
     public isMinified: boolean;
     private slug: string;
 
-    constructor(private serverComm: ServerCommunicationService, private route: ActivatedRoute) {
+    constructor(private serverComm: ServerCommunicationService, private route: ActivatedRoute,
+                private categoryService: CategoryService, private headerService: HeaderService) {
 
         if (this.route.params && this.route.params['value'] && this.route.params['value'].id) {
             this.slug = this.route.params['value'].id;
@@ -49,9 +53,10 @@ export class PostComponent implements OnChanges, OnInit {
         if (!this.postModel) {
             return;
         }
-        if (!this.postModel.content){
+        if (!this.postModel.content) {
             return;
         }
+        this.headerService.setTitle(this.categoryService.getTitleById(this.postModel.categories[0]));
         this.postContent = this.postModel.content['rendered'];
         this.content.nativeElement.innerHTML = this.postContent;
     }

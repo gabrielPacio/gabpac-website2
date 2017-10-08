@@ -24,6 +24,14 @@ export class CategoryService {
         return ret;
     }
 
+    public getTitleById(id: number): TitleDescriptionModel {
+        const ret: TitleDescriptionModel = new TitleDescriptionModel();
+        const category = this.categories.filter(cat => cat.id === id)[0];
+        ret.title = category.name;
+        ret.description = category.description;
+        return ret;
+    }
+
     public getCategoryByName(name: string, page = 1): Observable<PostModel[]> {
         return this.serverComm.getPostsByCategory(this.getIdByName(name), page);
     }

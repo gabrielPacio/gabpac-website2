@@ -28,7 +28,7 @@ export class SideNavigatorComponent implements AfterViewChecked {
 
         this.posts = document.getElementsByClassName('post-content');
         this.postsTopPositions = Array.from(this.posts).map(element => {
-            return element.getBoundingClientRect().top + window.innerHeight/2 + document.body.scrollTop;
+            return element.getBoundingClientRect().top + window.innerHeight/2 + (document.documentElement.scrollTop  || document.body.scrollTop);
         })
     }
 
@@ -45,7 +45,7 @@ export class SideNavigatorComponent implements AfterViewChecked {
             return this.postsTopPositions[key] > position /*&& this.postsTopPositions[key + 1] < position*/;
         });
         if (arr && arr[0] && arr[0].getElementsByTagName('h2')) {
-            currentId = arr[0].getElementsByTagName('h2')[0].id
+            currentId = arr[0].getElementsByTagName('h2')[0].id;
             if (this.currentId !== currentId) {
                 this.currentId = currentId;
             }

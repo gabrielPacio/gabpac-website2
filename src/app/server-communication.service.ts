@@ -55,6 +55,18 @@ export class ServerCommunicationService {
             .catch(this.handleError);
     }
 
+    public getPostPrevious(currentPostDate: Date, category: number): Observable<PostModel> {
+        return this.http.get(globals.SITE_URL + 'posts?before=' + currentPostDate + '&per_page=1&categories=' + category)
+            .map(res => res.json().map(element => new PostModel(element))[0])
+            .catch(this.handleError);
+    }
+
+    public getPostNext(currentPostDate: Date, category: number): Observable<PostModel> {
+        return this.http.get(globals.SITE_URL + 'posts?after=' + currentPostDate + '&per_page=1&order=asc&categories=' + category)
+            .map(res => res.json().map(element => new PostModel(element))[0])
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): Observable<any> {
     console.log('An error have occurred - ', error);
     return error;
