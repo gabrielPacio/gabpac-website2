@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryService} from "../category/category.service";
 import {TitleDescriptionModel} from "../category/titleDescription.model";
 import {HeaderService} from "../header/header.service";
+import {CommentModel} from './comment/comment.model';
 
 @Component({
   templateUrl: 'post.component.html',
@@ -20,6 +21,7 @@ export class PostComponent implements OnChanges, OnInit {
     public postContent: string;
     public isMinified: boolean;
     private slug: string;
+    public comments: CommentModel[];
 
     constructor(private serverComm: ServerCommunicationService, private route: ActivatedRoute,
                 private categoryService: CategoryService, private headerService: HeaderService) {
@@ -59,5 +61,9 @@ export class PostComponent implements OnChanges, OnInit {
         this.headerService.setTitle(this.categoryService.getTitleById(this.postModel.categories[0]));
         this.postContent = this.postModel.content['rendered'];
         this.content.nativeElement.innerHTML = this.postContent;
+    }
+
+    public onModalOpen(event) {
+        this.serverComm.getPostComments(this.postModel.id).subscribe(res => this.comments = res);
     }
 }

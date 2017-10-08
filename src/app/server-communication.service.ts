@@ -7,6 +7,7 @@ import {PostModel} from './post/post.model';
 import * as globals from './globals';
 import {CategoryModel} from "./category/category.model";
 import {element} from 'protractor';
+import {CommentModel} from './post/comment/comment.model';
 
 @Injectable()
 export class ServerCommunicationService {
@@ -64,6 +65,13 @@ export class ServerCommunicationService {
     public getPostNext(currentPostDate: Date, category: number): Observable<PostModel> {
         return this.http.get(globals.SITE_URL + 'posts?after=' + currentPostDate + '&per_page=1&order=asc&categories=' + category)
             .map(res => res.json().map(element => new PostModel(element))[0])
+            .catch(this.handleError);
+    }
+
+    public getPostComments(postId: number, page = 1): Observable<CommentModel[]> {
+        console.log('getPostComments');
+        return this.http.get(globals.SITE_URL + 'comments?post=' + postId)
+            .map(res => res.json().map(element => new CommentModel(element)))
             .catch(this.handleError);
     }
 

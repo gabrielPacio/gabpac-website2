@@ -20,6 +20,7 @@ import {Ng2PageScrollModule} from 'ng2-page-scroll';
 import {NavigationBetweenPostsComponent} from "./post/navigationBetweenPosts/navigationBetweenPosts.component";
 import {CategoryService} from "./category/category.service";
 import {ModalModule} from "ng2-modal";
+import {CommentComponent} from './post/comment/comment.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import {ModalModule} from "ng2-modal";
         HeaderComponent,
         MenuTooltipComponent,
         AboutPageComponent,
-        NavigationBetweenPostsComponent
+        NavigationBetweenPostsComponent,
+        CommentComponent
     ],
     imports: [
         BrowserModule,
