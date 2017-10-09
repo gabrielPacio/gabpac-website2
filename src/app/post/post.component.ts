@@ -64,16 +64,17 @@ export class PostComponent implements OnChanges, OnInit {
     }
 
     public onModalOpen(event) {
-        this.serverComm.getPostComments(this.postModel.id).subscribe(res => this.comments = res);
-        if (!this.comments) {
-            return;
-        }
-        this.comments.forEach(comment => {
-            if (comment.parent !== 0) {
-                this.getCommentById(comment.parent).children.push(comment);
+        this.serverComm.getPostComments(this.postModel.id).subscribe(res => {
+            this.comments = res
+            if (!this.comments) {
+                return;
             }
-        })
-        console.log('GABPAC ----------->', this.comments);
+            this.comments.forEach(comment => {
+                if (comment.parent !== 0) {
+                    this.getCommentById(comment.parent).children.push(comment);
+                }
+            })
+        });
     }
 
     private getCommentById(id: number): CommentModel {
