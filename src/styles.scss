@@ -192,3 +192,42 @@ footer {
     color: $color_menu;
 }
 
+.modal-lg {
+
+    button.close {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        line-height: inherit;
+        font-size: 3rem;
+        color: $color_menu;
+        height: inherit;
+        float: right;
+    }
+
+    .modal-title {
+        font-family: $font_squared;
+    }
+
+    .comment {
+
+        border-top: 1px solid $color_border;
+        padding: 3rem 0;
+
+        h3 {
+            font-size: 1.5rem;
+            letter-spacing: inherit;
+            color: $color_menu;
+            strong {
+                font-weight: 900;
+            }
+        }
+
+        .comment-content {
+            padding: 2rem;
+            border: 1px solid $color_border;
+            margin: 2rem;
+            @include single-box-shadow(1px, 3px, 10px, 2px, $color_shadow, true)
+        }
+    }
+}

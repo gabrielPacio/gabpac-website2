@@ -1,3 +1,4 @@
-<h3>Name: <strong>{{comment.author_name}}</strong></h3>
-<h3>Email: <strong>{{comment.author_url}}</strong></h3>
-<div #commentContent class="comment-content"></div>
+<h3>Nome: <strong>{{comment.author_name}}</strong></h3>
+<h3>Website: <strong><a href="{{comment.author_url}}" target="_blank">{{comment.author_url}}</a></strong></h3>
+<h3>Data: <strong>{{comment.date | date:'medium'}}</strong></h3>
+<div #commentContent class="comment-content border-radius"></div>

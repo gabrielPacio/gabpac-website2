@@ -16,6 +16,7 @@ export class CommentModel {
     author_avatar_urls: object;
     meta: Array<any>;
     _links: LinkModel;
+    children: CommentModel[];
 
     constructor(values: object = {}) {
         Object.assign(this, values);

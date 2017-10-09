@@ -1,23 +1,19 @@
 <div class="post-content row simple-shadow border-radius" xmlns="http://www.w3.org/1999/html">
     <h2 id="{{postModel.slug}}" *ngIf="postModel"><a routerLink="/post/{{postModel.slug}}" routerLinkActive="active-link">{{postModel.title["rendered"]}}</a></h2>
-    <div [ngClass]="{'minimized': isMinified, 'text-container': true}" #content>
-
-    </div>
-
-    <button *ngIf="!isInitializeMinified" (click)="commentsModal.open()">Comentários</button>
+    <div [ngClass]="{'minimized': isMinified, 'text-container': true}" #content></div>
+    <button *ngIf="!isMinified" (click)="commentsModal.open()">Comentários</button>
     <modal #commentsModal title="Comentários" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="onModalOpen($event)">
         <modal-content>
             <div class="empty-comments" *ngIf="!comments || comments.length === 0; else elseblock">
                 Não há comentários. Seja o primeiro a comentar.
             </div>
             <ng-template #elseblock>
-                <div class="comment" *ngFor="let comment of comments">
+                <div class="comment" id="comment-num-{{comment.id}}" *ngFor="let comment of comments">
                     <blog-comment [comment]="comment"></blog-comment>
                 </div>
             </ng-template>
         </modal-content>
     </modal>
-
     <blog-navigator-between-posts *ngIf="!isInitializeMinified" [post]="postModel" ></blog-navigator-between-posts>
     <div *ngIf="isMinified" class="shader"></div>
     <button *ngIf="isMinified" (click)="isMinified = false" role="button" class="maximize-button">Ler Mais</button>

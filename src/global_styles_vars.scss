@@ -3,7 +3,8 @@ $white: #fff;
 $black: #000;
 
 $brownish_grey: rgba(75, 71, 72, 1);
-$bright_red:    rgba(199, 102, 85, 1);
+/*$bright_red:    rgba(199, 102, 85, 1);*/
+$bright_red:    rgb(199, 73, 66);
 $sky_blue:      rgb(103, 163, 171);
 $dark_yellow:   rgb(184, 145, 39);
 $baby_yellow:   rgba(245, 228, 178, 1);
@@ -13,7 +14,7 @@ $bluish_grey:   rgb(126, 141, 148);
 /* ------------------- Used Colors ------------*/
 
 $color_shadow: rgba($bluish_grey, 0.5);
-$color_post_background: lighten($sky_blue, 40%);
+$color_post_background: lighten($sky_blue, 43%);
 $color_header_background: lighten($bright_red, 20%);
 $color_main_body: lighten($sky_blue, 80%);
 $color_menu: darken($bright_red, 20%);
@@ -21,6 +22,7 @@ $color_link: darken($bright_red, 10%);
 $color_body: $brownish_grey;
 $color_text_title: $dark_yellow;
 $color_background_title: $baby_yellow;
+$color_border: lighten($bluish_grey, 20%);
 
 /* ------------------- Fonts ----------------*/
 
