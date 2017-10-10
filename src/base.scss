@@ -35,6 +35,15 @@ table {
     border-collapse: collapse;
     border-spacing: 0; }
 
+@font-face {
+    font-family: ElizabethLight;
+    src: url(/assets/fonts/elizabethserif-light-webfont.woff2)
+}
+
+@font-face {
+    font-family: ElizabethLightItalic;
+    src: url(/assets/fonts/elizabethserif-lightitalic-webfont.woff2)
+}
 /*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache

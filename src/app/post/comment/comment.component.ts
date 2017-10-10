@@ -13,6 +13,5 @@ export class CommentComponent implements OnChanges {
 
     ngOnChanges() {
         this.commentContent.nativeElement.innerHTML = this.comment.content['rendered'];
-        console.log('ELEMENT!!!!',this.element.nativeElement)
     }
 }
