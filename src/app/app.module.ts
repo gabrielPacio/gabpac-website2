@@ -21,6 +21,7 @@ import {NavigationBetweenPostsComponent} from "./post/navigationBetweenPosts/nav
 import {CategoryService} from "./category/category.service";
 import {ModalModule} from "ng2-modal";
 import {CommentComponent} from './post/comment/comment.component';
+import {CommentsListingComponent} from './post/comment/commentsListing.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import {CommentComponent} from './post/comment/comment.component';
         MenuTooltipComponent,
         AboutPageComponent,
         NavigationBetweenPostsComponent,
-        CommentComponent
+        CommentComponent,
+        CommentsListingComponent
     ],
     imports: [
         BrowserModule,

@@ -66,18 +66,7 @@ export class PostComponent implements OnChanges, OnInit {
     public onModalOpen(event) {
         this.serverComm.getPostComments(this.postModel.id).subscribe(res => {
             this.comments = res
-            if (!this.comments) {
-                return;
-            }
-            this.comments.forEach(comment => {
-                if (comment.parent !== 0) {
-                    this.getCommentById(comment.parent).children.push(comment);
-                }
-            })
         });
     }
 
-    private getCommentById(id: number): CommentModel {
-        return this.comments.filter(comment => comment.id === id)[0];
-    }
 }

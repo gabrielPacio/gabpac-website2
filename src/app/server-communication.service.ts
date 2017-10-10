@@ -70,7 +70,7 @@ export class ServerCommunicationService {
 
     public getPostComments(postId: number, page = 1): Observable<CommentModel[]> {
         console.log('getPostComments');
-        return this.http.get(globals.SITE_URL + 'comments?post=' + postId + '&order=asc')
+        return this.http.get(globals.SITE_URL + 'comments?post=' + postId + '&order=asc&per_page=1000')
             .map(res => res.json().map(element => new CommentModel(element)))
             .catch(this.handleError);
     }

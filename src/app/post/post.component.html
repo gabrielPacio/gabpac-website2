@@ -8,9 +8,7 @@
                 Não há comentários. Seja o primeiro a comentar.
             </div>
             <ng-template #elseblock>
-                <div class="comment" id="comment-num-{{comment.id}}" *ngFor="let comment of comments">
-                    <blog-comment [comment]="comment"></blog-comment>
-                </div>
+                <blog-comments-listing [allComments]="comments"></blog-comments-listing>
             </ng-template>
         </modal-content>
     </modal>

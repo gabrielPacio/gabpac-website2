@@ -229,5 +229,23 @@ footer {
             margin: 2rem;
             @include single-box-shadow(1px, 3px, 10px, 2px, $color_shadow, true)
         }
+
+        &.leveled {
+
+            padding: 1rem 0;
+            border: inherit;
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            .comment-content {
+                font-size: 1rem;
+                padding: 1rem;
+                border: 1px solid $color_border;
+                margin: 1rem;
+                @include single-box-shadow(1px, 3px, 10px, 2px, $color_shadow, true)
+            }
+        }
     }
 }

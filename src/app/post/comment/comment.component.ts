@@ -8,8 +8,9 @@ import {CommentModel} from './comment.model';
 export class CommentComponent implements OnChanges {
 
     @Input() comment: CommentModel;
+    @Input() level: number = 0;
     @ViewChild('commentContent', {read: ElementRef}) commentContent: ElementRef;
-    constructor(private element: ElementRef) {}
+    constructor() {}
 
     ngOnChanges() {
         this.commentContent.nativeElement.innerHTML = this.comment.content['rendered'];

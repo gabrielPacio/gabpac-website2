@@ -2,3 +2,4 @@
 <h3>Website: <strong><a href="{{comment.author_url}}" target="_blank">{{comment.author_url}}</a></strong></h3>
 <h3>Data: <strong>{{comment.date | date:'medium'}}</strong></h3>
 <div #commentContent class="comment-content border-radius"></div>
+<blog-comments-listing [level]="level" [parentNumber]="comment.id" [allComments]="comment?.children"></blog-comments-listing>
