@@ -3,3 +3,5 @@
 <h3>Data: <strong>{{comment.date | date:'medium'}}</strong></h3>
 <div #commentContent class="comment-content border-radius"></div>
 <blog-comments-listing [level]="level" [parentNumber]="comment.id" [allComments]="comment?.children"></blog-comments-listing>
+<a href="#" class="comment-respond" (click)="respond($event)">Responder a este comentário</a>
+<div #respondForm></div>

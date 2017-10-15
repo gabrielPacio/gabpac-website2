@@ -22,6 +22,7 @@ import {CategoryService} from "./category/category.service";
 import {ModalModule} from "ng2-modal";
 import {CommentComponent} from './post/comment/comment.component';
 import {CommentsListingComponent} from './post/comment/commentsListing.component';
+import {CommentCreateComponent} from "./post/comment/commentCreate.component";
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import {CommentsListingComponent} from './post/comment/commentsListing.component
         AboutPageComponent,
         NavigationBetweenPostsComponent,
         CommentComponent,
-        CommentsListingComponent
+        CommentsListingComponent,
+        CommentCreateComponent
     ],
     imports: [
         BrowserModule,

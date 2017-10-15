@@ -249,3 +249,37 @@ footer {
         }
     }
 }
+
+.comment-create {
+
+    .ng-valid[required], .ng-valid.required  {
+        border-left: 5px solid #42A948; /* green */
+    }
+    .ng-invalid:not(form)  {
+        border-left: 5px solid #a94442; /* red */
+    }
+
+    .alert {
+        font-weight: 900;
+        color: $color_menu;
+        font-size: 0.8rem;
+        position: relative;
+        top: -16px;
+        margin-left: 1rem;
+    }
+
+    input {
+        width: 50%;
+
+        textarea {
+            width: 50%;
+        }
+    }
+
+    button[disabled]:hover {
+        background-color: $bluish_grey;
+        color: white;
+    }
+}
+
+

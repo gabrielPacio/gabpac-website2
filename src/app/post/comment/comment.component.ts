@@ -1,18 +1,31 @@
-import {Component, ElementRef, Input, OnChanges, ViewChild} from '@angular/core';
+import {
+    Component, ComponentFactoryResolver, ElementRef, Input, OnChanges, ViewChild,
+    ViewContainerRef
+} from '@angular/core';
 import {CommentModel} from './comment.model';
+import {CommentCreateComponent} from "./commentCreate.component";
 
 @Component({
     templateUrl: 'comment.component.html',
-    selector: 'blog-comment'
+    selector: 'blog-comment',
+    entryComponents: [CommentCreateComponent]
 })
 export class CommentComponent implements OnChanges {
 
     @Input() comment: CommentModel;
     @Input() level: number = 0;
     @ViewChild('commentContent', {read: ElementRef}) commentContent: ElementRef;
-    constructor() {}
+    constructor(private componentFactoryResolver: ComponentFactoryResolver,
+                private viewContainerRef: ViewContainerRef) {}
 
     ngOnChanges() {
         this.commentContent.nativeElement.innerHTML = this.comment.content['rendered'];
+    }
+
+    respond(e) {
+        e.preventDefault();
+        console.log('RESPOND!!!!');
+        const factory = this.componentFactoryResolver.resolveComponentFactory(CommentCreateComponent);
+        const ref = this.viewContainerRef.createComponent(factory);
     }
 }

@@ -12,4 +12,8 @@ export class CommentCreateModel {
     post: number;
     status: string;
     meta: string;
+
+    constructor(values: Object = {}) {
+        Object.assign(this, values);
+    }
 }

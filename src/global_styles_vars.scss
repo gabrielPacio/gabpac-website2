@@ -14,14 +14,14 @@ $bluish_grey:   rgb(126, 141, 148);
 /* ------------------- Used Colors ------------*/
 
 $color_shadow: rgba($bluish_grey, 0.5);
-$color_post_background: lighten($sky_blue, 43%);
+$color_post_background: desaturate(lighten($sky_blue, 40%),20%);
 $color_header_background: lighten($bright_red, 20%);
 $color_main_body: lighten($sky_blue, 80%);
 $color_menu: darken($bright_red, 20%);
 $color_link: darken($bright_red, 10%);
 $color_body: $brownish_grey;
 $color_text_title: $dark_yellow;
-$color_background_title: $baby_yellow;
+$color_background_title: desaturate(lighten($baby_yellow, 5%),10%);
 $color_border: lighten($bluish_grey, 20%);
 
 /* ------------------- Fonts ----------------*/
