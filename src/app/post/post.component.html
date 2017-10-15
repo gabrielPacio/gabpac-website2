@@ -1,4 +1,5 @@
 <div class="post-content row simple-shadow border-radius" xmlns="http://www.w3.org/1999/html">
+    <spinner *ngIf="isLoading"></spinner>
     <h2 id="{{postModel.slug}}" *ngIf="postModel"><a routerLink="/post/{{postModel.slug}}" routerLinkActive="active-link">{{postModel.title["rendered"]}}</a></h2>
     <div [ngClass]="{'minimized': isMinified, 'text-container': true}" #content></div>
     <button *ngIf="!isMinified" (click)="commentsModal.open()">Comentários</button>

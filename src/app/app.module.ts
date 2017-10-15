@@ -23,6 +23,7 @@ import {ModalModule} from "ng2-modal";
 import {CommentComponent} from './post/comment/comment.component';
 import {CommentsListingComponent} from './post/comment/commentsListing.component';
 import {CommentCreateComponent} from "./post/comment/commentCreate.component";
+import {SpinnerComponent} from './shared/spinner/spinner.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import {CommentCreateComponent} from "./post/comment/commentCreate.component";
         NavigationBetweenPostsComponent,
         CommentComponent,
         CommentsListingComponent,
-        CommentCreateComponent
+        CommentCreateComponent,
+        SpinnerComponent
     ],
     imports: [
         BrowserModule,

@@ -69,10 +69,27 @@ export class ServerCommunicationService {
     }
 
     public getPostComments(postId: number, page = 1): Observable<CommentModel[]> {
-        console.log('getPostComments');
         return this.http.get(globals.SITE_URL + 'comments?post=' + postId + '&order=asc')
             .map(res => res.json().map(element => new CommentModel(element)))
             .catch(this.handleError);
+    }
+
+    public postPostComment(postValues): Observable<any> {
+        return this.http.post(globals.SITE_URL + 'comments', postValues)
+            .map(res => {
+                res => res.json()
+            })
+    }
+
+    public getUserIP(): Observable<string> {
+        return this.http.get('http://api.ipify.org/?format=jsonp&callback=JSONP_CALLBACK')
+            .map(res => {
+                let ipVar = res.text();
+                let num = ipVar.indexOf(":");
+                let num2 = ipVar.indexOf("\"});");
+                ipVar = ipVar.slice(num+2,num2);
+                return ipVar
+            })
     }
 
     private handleError(error: any): Observable<any> {

@@ -20,6 +20,7 @@ export class PostComponent implements OnChanges, OnInit {
 
     public postContent: string;
     public isMinified: boolean;
+    public isLoading: boolean = true;
     private slug: string;
     public comments: CommentModel[];
 
@@ -58,6 +59,7 @@ export class PostComponent implements OnChanges, OnInit {
         if (!this.postModel.content) {
             return;
         }
+        this.isLoading = false;
         this.headerService.setTitle(this.categoryService.getTitleById(this.postModel.categories[0]));
         this.postContent = this.postModel.content['rendered'];
         this.content.nativeElement.innerHTML = this.postContent;

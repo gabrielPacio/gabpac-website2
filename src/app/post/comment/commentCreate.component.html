@@ -1,6 +1,6 @@
-<div class="comment-create">
+<div class="comment-create border-radius">
     <h4>Escreva seu comentário:</h4>
-    <form #commentForm="ngForm">
+    <form #commentForm="ngForm" (ngSubmit)="onSubmit()">
         <div>
             <label for="author_name">Autor</label>
             <input type="text" class="form-control" id="author_name" required minlength="4" maxlength="30" [(ngModel)]="model.author_name" name="author_name" #author_name="ngModel">
@@ -18,7 +18,7 @@
         </div>
         <div>
             <label for="author_email">Email</label>
-            <input type="email" class="form-control" id="author_email" required pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-‌​9-]+)*" [(ngModel)]="model.author_email" name="author_email" #author_email="ngModel">
+            <input type="email" class="form-control" id="author_email" required pattern="[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-‌​9-]+)+.+[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]*" [(ngModel)]="model.author_email" name="author_email" #author_email="ngModel">
             <div *ngIf="author_email.errors && (author_email.dirty || author_email.touched)" class="alert alert-danger">
                 <div [hidden]="!author_email.errors.required">
                     Email é campo obrigatório - Seu email não será revelado a outros usuários.

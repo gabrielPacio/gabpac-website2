@@ -10,6 +10,7 @@ import {TitleDescriptionModel} from '../category/titleDescription.model';
 export class AboutPageComponent implements OnInit {
 
     @ViewChild('content', {read: ElementRef}) content: ElementRef;
+    public isLoading: boolean = true;
     constructor(private serverComm: ServerCommunicationService, private headerService: HeaderService) {
 
     }
@@ -20,6 +21,7 @@ export class AboutPageComponent implements OnInit {
         titleDescription.description = 'O autor, humildemente escrevendo sobre si mesmo';
         this.headerService.setTitle(titleDescription);
         this.serverComm.getAbout().subscribe(res => {
+            this.isLoading = false;
             this.content.nativeElement.innerHTML = res.content['rendered'];
         });
     }

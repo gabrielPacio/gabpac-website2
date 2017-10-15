@@ -13,7 +13,8 @@ export class CategoryService {
     }
 
     private getIdByName(name: string): number {
-        return this.categories.filter(category => category.slug === name)[0].id;
+        const ret = this.categories.filter(category => category.slug === name)[0];
+        return ret.id;
     }
 
     public getTitleBySlug(slug: string): TitleDescriptionModel {

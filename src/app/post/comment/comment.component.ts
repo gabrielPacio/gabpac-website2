@@ -24,8 +24,9 @@ export class CommentComponent implements OnChanges {
 
     respond(e) {
         e.preventDefault();
-        console.log('RESPOND!!!!');
         const factory = this.componentFactoryResolver.resolveComponentFactory(CommentCreateComponent);
         const ref = this.viewContainerRef.createComponent(factory);
+        ref.instance.postID = this.comment.post;
+        ref.instance.parentId = this.comment.id;
     }
 }

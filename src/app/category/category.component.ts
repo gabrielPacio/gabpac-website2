@@ -17,6 +17,7 @@ export class CategoryComponent implements OnInit, OnChanges {
     @Input() categoryNumber: number;
     private slug: string;
 
+    public isLoading: boolean = true;
     public posts: PostModel[];
     public postLinksSide: SideNavigatorModel[] = [];
     constructor(private serverComm: ServerCommunicationService, private router: Router, private categoryService: CategoryService,
@@ -31,7 +32,11 @@ export class CategoryComponent implements OnInit, OnChanges {
     }
 
     private loadCategoryPosts() {
+        if (this.router.routerState.root.children[0].snapshot.url[0].path !== 'category') {
+            return;
+        }
         this.categoryService.getCategoryByName(this.slug).subscribe(res => {
+            this.isLoading = false;
             this.posts = res;
             this.createSideLinks();
             this.headerService.setTitle(this.categoryService.getTitleBySlug(this.slug));
