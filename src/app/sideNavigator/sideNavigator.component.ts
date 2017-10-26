@@ -1,6 +1,7 @@
 import {AfterViewChecked, Component, Input} from '@angular/core';
 import {SideNavigatorModel} from "./sideNavigator.model";
 import * as _ from 'lodash';
+import {CategoryService} from '../category/category.service';
 
 @Component({
     selector: 'blog-side-navigator-component',
@@ -9,12 +10,13 @@ import * as _ from 'lodash';
 export class SideNavigatorComponent implements AfterViewChecked {
 
     @Input() postList: SideNavigatorModel[];
+    @Input() morePostsAfter: boolean;
 
     private posts: HTMLCollectionOf<Element>;
     private postsTopPositions: Array<number> = [];
     public currentId: string;
 
-    constructor() {
+    constructor(private categoryService: CategoryService) {
         document.addEventListener('scroll', this.handleOnScroll.bind(this));
     }
 

@@ -24,6 +24,8 @@ import {CommentComponent} from './post/comment/comment.component';
 import {CommentsListingComponent} from './post/comment/commentsListing.component';
 import {CommentCreateComponent} from "./post/comment/commentCreate.component";
 import {SpinnerComponent} from './shared/spinner/spinner.component';
+import {SocialComponent} from './social/social.component';
+import {ContactComponent} from './contact/contact.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +43,9 @@ import {SpinnerComponent} from './shared/spinner/spinner.component';
         CommentComponent,
         CommentsListingComponent,
         CommentCreateComponent,
-        SpinnerComponent
+        SpinnerComponent,
+        SocialComponent,
+        ContactComponent
     ],
     imports: [
         BrowserModule,

@@ -19,6 +19,8 @@ export class CategoryComponent implements OnInit, OnChanges {
 
     public isLoading: boolean = true;
     public posts: PostModel[];
+    private currentPage = 1;
+    private postPerListing = 10;
     public postLinksSide: SideNavigatorModel[] = [];
     constructor(private serverComm: ServerCommunicationService, private router: Router, private categoryService: CategoryService,
                 private headerService: HeaderService) {
@@ -40,12 +42,13 @@ export class CategoryComponent implements OnInit, OnChanges {
             this.posts = res;
             this.createSideLinks();
             this.headerService.setTitle(this.categoryService.getTitleBySlug(this.slug));
+            this.categoryNumber = this.categoryService.getIdByName(this.slug);
         });
     }
 
     ngOnInit() {
         if (this.categoryNumber) {
-            this.serverComm.getPostsByCategory(this.categoryNumber).subscribe(res => {
+            this.serverComm.getPostsByCategory(this.categoryNumber, 1, this.postPerListing).subscribe(res => {
                 this.posts = res;
             });
         }
@@ -55,6 +58,16 @@ export class CategoryComponent implements OnInit, OnChanges {
         if (this.posts) {
 
             this.createSideLinks();
+        }
+    }
+
+    public onLoadMore() {
+        this.currentPage++;
+        if (this.categoryNumber) {
+            this.serverComm.getPostsByCategory(this.categoryNumber, this.currentPage, this.postPerListing).subscribe(res => {
+                this.posts = this.posts.concat(res);
+                this.createSideLinks();
+            });
         }
     }
 

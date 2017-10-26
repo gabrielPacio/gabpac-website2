@@ -12,7 +12,7 @@ export class CategoryService {
         this.categories = serverComm.getAllCategories();
     }
 
-    private getIdByName(name: string): number {
+    public getIdByName(name: string): number {
         const ret = this.categories.filter(category => category.slug === name)[0];
         return ret.id;
     }

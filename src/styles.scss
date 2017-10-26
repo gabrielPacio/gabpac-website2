@@ -106,10 +106,19 @@ nav.main-menu {
 }
 
 .post-content {
-    background-color: $color_post_background;
+    margin: 7rem;
+
+    @media (min-width: 1400px) {
+        margin: 7rem auto;
+    }
+
+    @media (max-width: 1230px) {
+        margin: 7rem auto;
+    }
+
     padding: 7rem;
+    background-color: $color_post_background;
     max-width: 800px;
-    margin: 7rem auto;
     font-family: $font_reading;
     box-sizing: border-box;
 
@@ -151,14 +160,26 @@ nav.main-menu {
     }
 }
 
-.side-navigator {
+.side-navigator, .social-links {
+    /* Larger than tablet */
+    @media (max-width: 1230px) {
+        display: none;
+    }
+
     width: 200px;
     position: fixed;
     z-index: 5;
-    top: 16rem;
     right: 5rem;
     @include lightGradient($color_post_background);
     padding: 2rem;
+}
+
+.side-navigator {
+
+    bottom: 50px;
+    max-height: 540px;
+    overflow: auto;
+    top: 36rem;
 
     li {
         padding-bottom: 1rem;
@@ -175,6 +196,21 @@ nav.main-menu {
     .selected {
         color: darken($color_menu, 20%);
         font-weight: 900;
+    }
+}
+
+.social-links {
+    top: 24rem;
+
+    ul {
+        margin-bottom: 0;
+    }
+
+    li {
+        float: left;
+        &:not(:first-child) {
+            margin-left: 10px;
+        }
     }
 }
 
@@ -287,4 +323,39 @@ footer {
     }
 }
 
+.img-self {
+    margin-bottom: 1rem;
+}
 
+
+
+.home-page {
+    .home-title {
+        text-align: center;
+        font-family: $font_squared;
+        color: $color_menu;
+    }
+    .side-navigator {
+        h4 {
+            margin-bottom: 1.5rem;
+            font-family: $font_squared;
+            color: $color_menu;
+        }
+    }
+}
+
+.contact {
+    font-family: $font_squared;
+    font-size: 2rem;
+    line-height: 2rem;
+    .tcolumn {
+        &:first-child {
+            float: right;
+        }
+    }
+    .tline {
+        border-bottom: dotted $color_border 3px;
+        margin-bottom: 2rem;
+    }
+
+}

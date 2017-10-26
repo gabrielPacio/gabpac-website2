@@ -14,14 +14,14 @@ export class ServerCommunicationService {
 
     constructor(private http: Http) { }
 
-    public getAllPosts(page = 1): Observable<PostModel[]> {
-      return this.http.get(globals.SITE_URL + 'posts?page=' + page)
+    public getAllPosts(page = 1, perPage = 10): Observable<PostModel[]> {
+      return this.http.get(globals.SITE_URL + 'posts?page=' + page + '&per_page=' + perPage)
         .map(res => res.json().map(element => new PostModel(element)))
         .catch(this.handleError);
     }
 
-    public getPostsByCategory(category: number, page = 1): Observable<PostModel[]> {
-    return this.http.get(globals.SITE_URL + 'posts?categories=' + category + '&page=' + page)
+    public getPostsByCategory(category: number, page = 1, perPage = 10): Observable<PostModel[]> {
+    return this.http.get(globals.SITE_URL + 'posts?categories=' + category + '&page=' + page + '&per_page=' + perPage)
       .map(res => res.json().map(element => new PostModel(element)))
       .catch(this.handleError);
     }
