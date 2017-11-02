@@ -26,6 +26,8 @@ import {CommentCreateComponent} from "./post/comment/commentCreate.component";
 import {SpinnerComponent} from './shared/spinner/spinner.component';
 import {SocialComponent} from './social/social.component';
 import {ContactComponent} from './contact/contact.component';
+import {Angulartics2Module} from 'angulartics2';
+import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 
 @NgModule({
     declarations: [
@@ -53,7 +55,8 @@ import {ContactComponent} from './contact/contact.component';
         HttpModule,
         AppRoutes,
         Ng2PageScrollModule,
-        ModalModule
+        ModalModule,
+        Angulartics2Module.forRoot([Angulartics2GoogleAnalytics])
     ],
     providers: [ServerCommunicationService, HeaderService, CategoryService],
     bootstrap: [AppComponent]

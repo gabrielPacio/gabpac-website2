@@ -1,0 +1,4 @@
+[18-Oct-2017 03:39:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function get_template_part() in /home2/gabpacco/public_html/wp-content/themes/twentyseventeen/footer.php:22
+Stack trace:
+#0 {main}
+  thrown in /home2/gabpacco/public_html/wp-content/themes/twentyseventeen/footer.php on line 22

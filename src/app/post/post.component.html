@@ -2,7 +2,7 @@
     <spinner *ngIf="isLoading"></spinner>
     <h2 id="{{postModel.slug}}" *ngIf="postModel"><a routerLink="/post/{{postModel.slug}}" routerLinkActive="active-link">{{postModel.title["rendered"]}}</a></h2>
     <div [ngClass]="{'minimized': isMinified, 'text-container': true}" #content></div>
-    <button *ngIf="!isMinified" (click)="commentsModal.open()">Comentários</button>
+    <button angulartics2On="click" angularticsEvent="Comentarios" angularticsCategory="{{ postModel.title }}" [angularticsProperties]="{label: 'Init'}" *ngIf="!isMinified" (click)="commentsModal.open()">Comentários</button>
     <modal #commentsModal title="Comentários" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="onModalOpen($event)">
         <modal-content>
             <div class="empty-comments" *ngIf="!comments || comments.length === 0; else elseblock">
@@ -15,5 +15,5 @@
     </modal>
     <blog-navigator-between-posts *ngIf="!isInitializeMinified" [post]="postModel" ></blog-navigator-between-posts>
     <div *ngIf="isMinified" class="shader"></div>
-    <button *ngIf="isMinified" (click)="isMinified = false" role="button" class="maximize-button">Ler Mais</button>
+    <button angulartics2On="click" angularticsEvent="LerMais" angularticsCategory="{{ postModel.title }}" [angularticsProperties]="{label: 'Init'}" *ngIf="isMinified" (click)="isMinified = false" role="button" class="maximize-button">Ler Mais</button>
 </div>
