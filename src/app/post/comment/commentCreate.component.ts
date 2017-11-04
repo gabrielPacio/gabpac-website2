@@ -24,7 +24,6 @@ export class CommentCreateComponent {
     }
 
     onSubmit(commentForm: NgForm) {
-        console.log('SUBMIT!', this.model);
         this.serverComm.postPostComment(this.model).subscribe(res => {
             console.log('RES', res);
         })

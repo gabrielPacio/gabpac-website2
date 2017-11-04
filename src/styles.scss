@@ -116,7 +116,7 @@ nav.main-menu {
     margin-top: 16rem;
 }
 
-.post-content {
+.post-content, .after-posts {
     margin: 7rem;
 
     @media (min-width: 1400px) {
@@ -375,4 +375,8 @@ footer {
         margin-bottom: 2rem;
     }
 
+}
+.after-posts {
+    padding: 0;
+    background-color: inherit;
 }

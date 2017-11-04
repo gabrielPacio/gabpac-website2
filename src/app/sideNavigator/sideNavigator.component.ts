@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, Input} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {SideNavigatorModel} from "./sideNavigator.model";
 import * as _ from 'lodash';
 import {CategoryService} from '../category/category.service';
@@ -11,6 +11,8 @@ export class SideNavigatorComponent implements AfterViewChecked {
 
     @Input() postList: SideNavigatorModel[];
     @Input() morePostsAfter: boolean;
+
+    @ViewChild('linksList') elementRef: ElementRef;
 
     private posts: HTMLCollectionOf<Element>;
     private postsTopPositions: Array<number> = [];
@@ -30,7 +32,7 @@ export class SideNavigatorComponent implements AfterViewChecked {
 
         this.posts = document.getElementsByClassName('post-content');
         this.postsTopPositions = Array.from(this.posts).map(element => {
-            return element.getBoundingClientRect().top + window.innerHeight/2 + (document.documentElement.scrollTop  || document.body.scrollTop);
+            return element.getBoundingClientRect().top + window.innerHeight / 2 + (document.documentElement.scrollTop  || document.body.scrollTop);
         })
     }
 
@@ -47,6 +49,11 @@ export class SideNavigatorComponent implements AfterViewChecked {
             return this.postsTopPositions[key] > position /*&& this.postsTopPositions[key + 1] < position*/;
         });
         if (arr && arr[0] && arr[0].getElementsByTagName('h2')) {
+            const selected = this.elementRef.nativeElement.getElementsByClassName('selected')[0];
+            if (selected) {
+                selected.scrollIntoView();
+            }
+
             const array = arr[0].getElementsByTagName('h2')[0];
             if (array) {
                 currentId = array.id;
@@ -55,6 +62,7 @@ export class SideNavigatorComponent implements AfterViewChecked {
             if (this.currentId !== currentId) {
                 this.currentId = currentId;
             }
+
         } else {
             return;
         }

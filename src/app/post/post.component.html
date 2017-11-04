@@ -11,6 +11,12 @@
             <ng-template #elseblock>
                 <blog-comments-listing [allComments]="comments"></blog-comments-listing>
             </ng-template>
+            <button (click)="respostaModal.open()">Dê o seu pitaco!</button>
+        </modal-content>
+    </modal>
+    <modal #respostaModal title="Comentar" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="onModalOpen($event)">
+        <modal-content>
+            <blog-comment-create [parentId]="0" [postID]="postModel.id"></blog-comment-create>
         </modal-content>
     </modal>
     <blog-navigator-between-posts *ngIf="!isInitializeMinified" [post]="postModel" ></blog-navigator-between-posts>

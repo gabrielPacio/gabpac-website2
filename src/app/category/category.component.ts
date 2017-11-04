@@ -7,6 +7,7 @@ import {SideNavigatorModel} from "../sideNavigator/sideNavigator.model";
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import {HeaderService} from "../header/header.service";
+import {SideNavigatorComponent} from "../sideNavigator/sideNavigator.component";
 @Component({
     templateUrl: 'category.component.html',
     selector: 'blog-category-component',
@@ -44,6 +45,7 @@ export class CategoryComponent implements OnInit, OnChanges {
             this.headerService.setTitle(this.categoryService.getTitleBySlug(this.slug));
             this.categoryNumber = this.categoryService.getIdByName(this.slug);
         });
+        window.scrollTo(0, 0);
     }
 
     ngOnInit() {

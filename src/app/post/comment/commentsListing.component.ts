@@ -13,7 +13,6 @@ export class CommentsListingComponent implements OnChanges {
     constructor() {}
 
     ngOnChanges() {
-        console.log('All!!!!!',this.allComments);
         if (!this.allComments) {
             return;
         }

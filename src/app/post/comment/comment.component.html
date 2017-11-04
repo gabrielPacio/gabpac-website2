@@ -2,7 +2,11 @@
 <h3>Website: <strong><a href="{{comment.author_url}}" target="_blank">{{comment.author_url}}</a></strong></h3>
 <h3>Data: <strong>{{comment.date | date:'medium'}}</strong></h3>
 <div #commentContent class="comment-content border-radius"></div>
-<div #respondForm></div>
-<a href="#" class="comment-respond" (click)="respond($event)">Responder a este comentário</a>
+<button (click)="respostaModal.open()">Responder a esse comentário</button>
+<modal #respostaModal title="Responder" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="onModalOpen($event)">
+    <modal-content>
+        <blog-comment-create [parentId]="comment.id" [postID]="comment.post"></blog-comment-create>
+    </modal-content>
+</modal>
 <blog-comments-listing [level]="level" [parentNumber]="comment.id" [allComments]="comment?.children"></blog-comments-listing>
 
