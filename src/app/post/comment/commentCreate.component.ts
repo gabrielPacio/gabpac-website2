@@ -23,7 +23,7 @@ export class CommentCreateComponent {
         this.model.post = this.postID;
     }
 
-    onSubmit(commentForm: NgForm) {
+    onSubmit() {
         this.serverComm.postPostComment(this.model).subscribe(res => {
             console.log('RES', res);
         })

@@ -6,6 +6,10 @@
         <blog-post-component [isInitializeMinified]="true" [postModel]="post"></blog-post-component>
     </div>
     <div class="after-posts ">
-        <button angulartics2On="click" angularticsEvent="CarregarMaisPostagens" angularticsCategory="{{ slug }}" [angularticsProperties]="{label: 'Init'}" (click)="onLoadMore()">Mais postagens</button>
+        <button angulartics2On="click"
+                angularticsEvent="CarregarMaisPostagens"
+                angularticsCategory="{{ slug }}"
+                [angularticsProperties]="{label: 'Init'}"
+                (click)="onLoadMore()">Mais postagens</button>
     </div>
 </div>

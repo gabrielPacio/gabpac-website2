@@ -7,22 +7,26 @@ import {SideNavigatorModel} from "../sideNavigator/sideNavigator.model";
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import {HeaderService} from "../header/header.service";
-import {SideNavigatorComponent} from "../sideNavigator/sideNavigator.component";
+import {fadeInAnimation} from '../global/animations/fadeInAnimation';
 @Component({
     templateUrl: 'category.component.html',
     selector: 'blog-category-component',
-    providers: [CategoryService]
+    providers: [CategoryService],
+    animations: [fadeInAnimation],
+    host: {'[@fadeInAnimation]': ''}
 })
 export class CategoryComponent implements OnInit, OnChanges {
 
     @Input() categoryNumber: number;
-    private slug: string;
 
     public isLoading: boolean = true;
     public posts: PostModel[];
+    public postLinksSide: SideNavigatorModel[] = [];
+    public slug: string;
     private currentPage = 1;
     private postPerListing = 10;
-    public postLinksSide: SideNavigatorModel[] = [];
+    private state: string = 'startRender';
+
     constructor(private serverComm: ServerCommunicationService, private router: Router, private categoryService: CategoryService,
                 private headerService: HeaderService) {
         this.router.events
@@ -30,12 +34,14 @@ export class CategoryComponent implements OnInit, OnChanges {
             .map(() => this.router.routerState.root.children[0].params['value']['id'])
             .subscribe((event) => {
                 this.slug = event;
+                this.state = 'startRender';
                 this.loadCategoryPosts();
             });
     }
 
     private loadCategoryPosts() {
-        if (this.router.routerState.root.children[0].snapshot.url[0].path !== 'category') {
+
+        if (!this.router.routerState.root.children[0].snapshot.url[0] || this.router.routerState.root.children[0].snapshot.url[0].path !== 'category') {
             return;
         }
         this.categoryService.getCategoryByName(this.slug).subscribe(res => {
@@ -46,6 +52,8 @@ export class CategoryComponent implements OnInit, OnChanges {
             this.categoryNumber = this.categoryService.getIdByName(this.slug);
         });
         window.scrollTo(0, 0);
+
+
     }
 
     ngOnInit() {
@@ -58,9 +66,9 @@ export class CategoryComponent implements OnInit, OnChanges {
 
     ngOnChanges() {
         if (this.posts) {
-
             this.createSideLinks();
         }
+        this.state = 'endRender';
     }
 
     public onLoadMore() {

@@ -28,6 +28,7 @@ import {SocialComponent} from './social/social.component';
 import {ContactComponent} from './contact/contact.component';
 import {Angulartics2Module} from 'angulartics2';
 import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         HttpModule,
         AppRoutes,
