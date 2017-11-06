@@ -22,11 +22,11 @@ export class CommentComponent implements OnChanges {
         this.commentContent.nativeElement.innerHTML = this.comment.content['rendered'];
     }
 
-    respond(e) {
-        e.preventDefault();
-        const factory = this.componentFactoryResolver.resolveComponentFactory(CommentCreateComponent);
-        const ref = this.viewContainerRef.createComponent(factory);
-        ref.instance.postID = this.comment.post;
-        ref.instance.parentId = this.comment.id;
-    }
+    // respond(e) {
+    //     e.preventDefault();
+    //     //const factory = this.componentFactoryResolver.resolveComponentFactory(CommentCreateComponent);
+    //     //const ref = this.viewContainerRef.createComponent(factory);
+    //     //ref.instance.postID = this.comment.post;
+    //     //ref.instance.parentId = this.comment.id;
+    // }
 }

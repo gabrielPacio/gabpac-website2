@@ -3,7 +3,7 @@
 <h3>Data: <strong>{{comment.date | date:'medium'}}</strong></h3>
 <div #commentContent class="comment-content border-radius"></div>
 <button (click)="respostaModal.open()">Responder a esse comentário</button>
-<modal #respostaModal title="Responder" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="respond($event)">
+<modal #respostaModal title="Responder" cancelButtonLabel="Fechar" modalClass="modal-lg">
     <modal-content>
         <blog-comment-create [parentId]="comment.id" [postID]="comment.post"></blog-comment-create>
     </modal-content>
