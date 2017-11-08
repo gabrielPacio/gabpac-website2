@@ -6,7 +6,6 @@ import 'rxjs/add/operator/catch';
 import {PostModel} from './post/post.model';
 import * as globals from './globals';
 import {CategoryModel} from "./category/category.model";
-import {element} from 'protractor';
 import {CommentModel} from './post/comment/comment.model';
 
 @Injectable()

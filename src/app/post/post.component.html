@@ -2,8 +2,8 @@
     <spinner *ngIf="isLoading"></spinner>
     <h2 id="{{postModel.slug}}" *ngIf="postModel"><a routerLink="/post/{{postModel.slug}}" routerLinkActive="active-link">{{postModel.title["rendered"]}}</a></h2>
     <div [ngClass]="{'minimized': isMinified, 'text-container': true}" #content></div>
-    <button angulartics2On="click" angularticsEvent="Comentarios" angularticsCategory="{{ postModel.title }}" [angularticsProperties]="{label: 'Init'}" *ngIf="!isMinified" (click)="commentsModal.open()">Comentários</button>
-    <modal #commentsModal title="Comentários" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="onModalOpen($event)">
+    <button angulartics2On="click" angularticsEvent="Comentarios" angularticsCategory="{{ postModel.title }}" [angularticsProperties]="{label: 'Init'}" *ngIf="!isMinified && isComentsAvailable" (click)="commentsModal.open()">Comentários</button>
+    <modal *ngIf="isComentsAvailable" #commentsModal title="Comentários" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="onModalOpen($event)">
         <modal-content>
             <div class="empty-comments" *ngIf="!comments || comments.length === 0; else elseblock">
                 Não há comentários. Seja o primeiro a comentar.
@@ -14,7 +14,7 @@
             <button (click)="respostaModal.open()">Dê o seu pitaco!</button>
         </modal-content>
     </modal>
-    <modal #respostaModal title="Comentar" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="onModalOpen($event)">
+    <modal *ngIf="isComentsAvailable" #respostaModal title="Comentar" cancelButtonLabel="Fechar" modalClass="modal-lg" (onOpen)="onModalOpen($event)">
         <modal-content>
             <blog-comment-create [parentId]="0" [postID]="postModel.id"></blog-comment-create>
         </modal-content>

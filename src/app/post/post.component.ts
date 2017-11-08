@@ -3,9 +3,9 @@ import {ServerCommunicationService} from "../server-communication.service";
 import {PostModel} from './post.model';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryService} from "../category/category.service";
-import {TitleDescriptionModel} from "../category/titleDescription.model";
 import {HeaderService} from "../header/header.service";
 import {CommentModel} from './comment/comment.model';
+import * as globals from './../globals';
 
 @Component({
   templateUrl: 'post.component.html',
@@ -23,6 +23,7 @@ export class PostComponent implements OnChanges, OnInit {
     public isLoading: boolean = true;
     private slug: string;
     public comments: CommentModel[];
+    public isComentsAvailable: boolean = globals.IS_COMMENTS_AVAILABLE;
 
     constructor(private serverComm: ServerCommunicationService, private route: ActivatedRoute,
                 private categoryService: CategoryService, private headerService: HeaderService) {
