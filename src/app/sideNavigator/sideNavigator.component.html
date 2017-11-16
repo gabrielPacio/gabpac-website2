@@ -1,5 +1,0 @@
-<div #linksList class="side-navigator simple-shadow border-radius">
-    <ul>
-        <li *ngFor="let post of postList"><a [ngClass]="{'selected': currentId === post.linkName}" pageScroll [pageScrollOffset]="250" [pageScrollDuration]="1000" href="#{{post.linkName}}">{{post.title}}</a></li>
-    </ul>
-</div>
