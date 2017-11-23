@@ -1,0 +1,9 @@
+<nav class="blog-menu">
+    <ul>
+        <ng-container *ngFor="let contentItem of contentModelList">
+            <li *ngIf="contentItem.isAvailable">
+                <a [routerLink]="[contentItem.name]" [queryParams]="{q: 'test'}" routerLinkActive="active-link">{{contentItem.menuTitle}}</a>
+            </li>
+        </ng-container>
+    </ul>
+</nav>

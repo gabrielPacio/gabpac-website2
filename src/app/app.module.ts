@@ -11,6 +11,7 @@ import {StringPipe} from './pipes/string.pipe';
 import {NavigationService} from './shared/navigation/navigation.service';
 import {HeaderComponent} from './header/header.component';
 import {ContentManagerService} from './contentManager/content-manager.service';
+import {MenuComponent} from './menu/menu.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import {ContentManagerService} from './contentManager/content-manager.service';
         TestComponentComponent,
         ContentManagerComponent,
         StringPipe,
-        HeaderComponent
+        HeaderComponent,
+        MenuComponent
     ],
     imports: [
         BrowserModule,

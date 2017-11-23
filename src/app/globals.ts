@@ -12,7 +12,7 @@ export const siteStructure = {
             "menuTitle": "DesOriente",
             "tooltip": "Análises, crônicas e notícias sobre Israel e o Oriente Médio",
             "description": "Textos sobre Israel e o Oriente Médio, em sua maioria publicados no site Conexão Israel. Histórias e crônicas sobre o dia a dia, fatos culturais e políticos, além de notícias e análises políticas.",
-            "structureType": "secction",
+            "structureType": "section",
             "id": 3,
             "isAvailable": true
         },
@@ -21,7 +21,7 @@ export const siteStructure = {
             "menuTitle": "Microhistorinhas",
             "tooltip": "Pequenas crônicas e snapshots do dia-a-dia em Israel",
             "description": "Textos sobre Israel e o Oriente Médio, em sua maioria publicados no site Conexão Israel. Histórias e crônicas sobre o dia a dia, fatos culturais e políticos, além de notícias e análises políticas.",
-            "structureType": "secction",
+            "structureType": "section",
             "id": 4,
             "isAvailable": true
         }

@@ -8,7 +8,7 @@ export class ContentModel {
     isAvailable: boolean;
 
     constructor(values = {}) {
-        Object.assign(values, this)
+        Object.assign(this, values)
     }
 }
 

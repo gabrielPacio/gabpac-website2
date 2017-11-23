@@ -1,4 +1,5 @@
-import {Component, Input} from "@angular/core";
+import {Component} from "@angular/core";
+import {ContentManagerService} from '../contentManager/content-manager.service';
 
 @Component({
     selector: 'blog-header',
@@ -7,10 +8,13 @@ import {Component, Input} from "@angular/core";
 })
 export class HeaderComponent {
 
-    @Input() title: string;
-    @Input() subtitle: string = '';
+    public title: string = '';
+    public subtitle: string = '';
 
-    constructor() {
-
+    constructor(private contentManagerService: ContentManagerService) {
+        this.contentManagerService.currentContentEmmiter.subscribe(response => {
+            this.title = response.menuTitle;
+            this.subtitle = response.tooltip;
+        })
     }
 }
