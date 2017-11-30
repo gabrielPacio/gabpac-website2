@@ -24,18 +24,4 @@ export class ContentManagerService {
     public get currentContent(): ContentModel {
         return this._currentContent;
     }
-
-    public loadContent(queryProperty: object) {
-        switch (this._currentContent.structureType) {
-            case StructureType.hardcoded:
-
-                break;
-            case StructureType.page:
-
-                break;
-            case StructureType.section:
-
-                break;
-        }
-    }
 }

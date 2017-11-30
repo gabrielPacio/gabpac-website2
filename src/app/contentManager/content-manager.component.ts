@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationService} from '../shared/navigation/navigation.service';
-import {ContentModel} from './content-model';
+import {ContentModel, StructureType} from './content-model';
 import {ContentManagerService} from './content-manager.service';
 import {Router} from '@angular/router';
 
@@ -28,5 +28,19 @@ export class ContentManagerComponent implements OnInit {
             this.contentManagerService.currentContent = this._selectedContent;
         });
         this._contentModelList = this.contentManagerService.getSiteStructure();
+    }
+
+    public loadContent(queryProperty: object) {
+        switch (this._selectedContent.structureType) {
+            case StructureType.hardcoded:
+
+                break;
+            case StructureType.page:
+
+                break;
+            case StructureType.section:
+
+                break;
+        }
     }
 }
